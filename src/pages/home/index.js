@@ -2,17 +2,13 @@ import React from 'react'
 import { connect } from 'dva'
 import styles from './index.less'
 
-const Home = () => {
-
+const Home = (home) => {
+  console.log(home)
   return (
-    <div className={styles.form}>
+    <div className={styles.home}>
       home
     </div>
   )
-}
-
-Home.propTypes = {
-
 }
 
 export default connect(({ home }) => ({ home }))(Home)

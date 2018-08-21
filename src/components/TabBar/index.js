@@ -1,15 +1,23 @@
 import React from 'react'
 import { TabBar } from 'antd-mobile'
+import { routerRedux } from 'dva/router'
 
 class MeTabBar extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      selectedTab: 'Index',
+      selectedTab: 'home',
       hidden: false,
       interActionBadge:'',
       loveMomentBadge:'',
     }
+  }
+  handleSelectChange = (payload)=>{
+    this.setState({
+      selectedTab:payload,
+    })
+    console.log('/'+payload)
+    routerRedux.push('/'+payload)
   }
   render () {
     return (
@@ -22,14 +30,12 @@ class MeTabBar extends React.Component {
         >
           <TabBar.Item
             title="首页"
-            key="Index"
+            key="home"
             icon={{uri: require('../../../assets/icons/unindex.svg')}}
             selectedIcon={{ uri : require('../../../assets/icons/index.svg') }}
-            selected={this.state.selectedTab === 'Index'}
+            selected={this.state.selectedTab === 'home'}
             onPress={() => {
-              this.setState({
-                selectedTab: 'Index',
-              })
+              this.handleSelectChange('home')
             }}
           >
           </TabBar.Item>
@@ -37,13 +43,11 @@ class MeTabBar extends React.Component {
             icon={{uri:require('../../../assets/icons/uninteraction.svg')}}
             selectedIcon={{uri:require('../../../assets/icons/interaction.svg')}}
             title="互动"
-            key="Interaction"
+            key="interaction"
             badge={this.state.interActionBadge}
-            selected={this.state.selectedTab === 'Interaction'}
+            selected={this.state.selectedTab === 'interaction'}
             onPress={() => {
-              this.setState({
-                selectedTab: 'Interaction',
-              })
+              this.handleSelectChange('interaction')
             }}
           >
           </TabBar.Item>
@@ -51,13 +55,11 @@ class MeTabBar extends React.Component {
             icon={{uri:require('../../../assets/icons/unlove.svg')}}
             selectedIcon={{uri:require('../../../assets/icons/love.svg')}}
             title="恋爱圈"
-            key="LoveMoment"
+            key="loveMoment"
             badge={this.state.loveMomentBadge}
-            selected={this.state.selectedTab === 'LoveMoment'}
+            selected={this.state.selectedTab === 'loveMoment'}
             onPress={() => {
-              this.setState({
-                selectedTab: 'LoveMoment',
-              })
+              this.handleSelectChange('loveMoment')
             }}
           >
           </TabBar.Item>
@@ -65,12 +67,10 @@ class MeTabBar extends React.Component {
             icon={{ uri: require('../../../assets/icons/unmy.svg') }}
             selectedIcon={{ uri: require('../../../assets/icons/my.svg') }}
             title="个人中心"
-            key="My"
-            selected={this.state.selectedTab === 'My'}
+            key="myInfo"
+            selected={this.state.selectedTab === 'myInfo'}
             onPress={() => {
-              this.setState({
-                selectedTab: 'My',
-              })
+              this.handleSelectChange('myInfo')
             }}
           >
           </TabBar.Item>

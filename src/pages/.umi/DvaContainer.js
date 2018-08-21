@@ -12,6 +12,10 @@ app.use(createLoading());
 app.use(require('F:/workspace/forever_love/node_modules/dva-immer/lib/index.js').default());
 app.model({ namespace: 'app', ...(require('F:/workspace/forever_love/src/models/app.js').default) });
 app.model({ namespace: 'model', ...(require('F:/workspace/forever_love/src/pages/home/model.js').default) });
+app.model({ namespace: 'model', ...(require('F:/workspace/forever_love/src/pages/myInfo/model.js').default) });
+app.model({ namespace: 'model', ...(require('F:/workspace/forever_love/src/pages/interaction/model.js').default) });
+app.model({ namespace: 'model', ...(require('F:/workspace/forever_love/src/pages/login/model.js').default) });
+app.model({ namespace: 'model', ...(require('F:/workspace/forever_love/src/pages/loveMoment/model.js').default) });
 
 class DvaContainer extends Component {
   render() {

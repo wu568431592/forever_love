@@ -1,28 +1,38 @@
 import React from 'react'
 import { connect } from 'dva'
 import { withRouter } from 'dva/router'
+import PropTypes from 'prop-types'
 import MeTabBar from '../components/TabBar/index'
-import { NavBar, Icon ,Button, Checkbox } from 'antd-mobile'
+import { config } from '../utils/index'
 
 import '../themes/index.less'
 import './app.less'
 
+const { openPages } = config
 
-const App = ({ app }) => {
+const App = ({ app, children, location }) => {
   console.log(app)
+  let { pathname } = location
+  if(openPages && openPages.includes(pathname)){
+    return (
+      <div>
+        {children}
+      </div>
+    )
+  }
+
   return (
-    <div className='app' id='app'>
-      <NavBar
-        mode="light"
-        rightContent={[
-          <Icon key="0" type="ellipsis" />,
-        ]}
-      >首页</NavBar>
-      <Button type='primary'>123</Button>
-      <Checkbox>123</Checkbox>
-      <MeTabBar/>
+    <div className='app'>
+      {children}
+      <MeTabBar />
     </div>
+
   )
+}
+App.propTypes = {
+  children: PropTypes.element.isRequired,
+  app: PropTypes.object,
+  location: PropTypes.object,
 }
 
 export default withRouter(

@@ -22,9 +22,9 @@ let routes = [
         "component": require('../404.js').default
       },
       {
-        "path": "/home",
+        "path": "/",
         "exact": true,
-        "component": require('../home/index.js').default
+        "component": require('../index.js').default
       },
       {
         "path": "/home/model",
@@ -32,12 +32,52 @@ let routes = [
         "component": require('../home/model.js').default
       },
       {
-        "path": "/",
+        "path": "/myInfo/model",
         "exact": true,
-        "component": require('../index.js').default
+        "component": require('../myInfo/model.js').default
       },
       {
-        "component": () => React.createElement(require('C:/Users/马志军/AppData/Roaming/npm/node_modules/umi/node_modules/_umi-build-dev@0.22.2@umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', routes: '[{"path":"/","component":"./src\\\\layouts\\\\index.js","routes":[{"path":"/404","exact":true,"component":"./src/pages/404.js"},{"path":"/home","exact":true,"component":"./src/pages/home/index.js"},{"path":"/home/model","exact":true,"component":"./src/pages/home/model.js"},{"path":"/","exact":true,"component":"./src/pages/index.js"}]}]' })
+        "path": "/interaction",
+        "exact": true,
+        "component": require('../interaction/index.js').default
+      },
+      {
+        "path": "/interaction/model",
+        "exact": true,
+        "component": require('../interaction/model.js').default
+      },
+      {
+        "path": "/home",
+        "exact": true,
+        "component": require('../home/index.js').default
+      },
+      {
+        "path": "/login/model",
+        "exact": true,
+        "component": require('../login/model.js').default
+      },
+      {
+        "path": "/loveMoment",
+        "exact": true,
+        "component": require('../loveMoment/index.js').default
+      },
+      {
+        "path": "/loveMoment/model",
+        "exact": true,
+        "component": require('../loveMoment/model.js').default
+      },
+      {
+        "path": "/myInfo",
+        "exact": true,
+        "component": require('../myInfo/index.js').default
+      },
+      {
+        "path": "/login",
+        "exact": true,
+        "component": require('../login/index.js').default
+      },
+      {
+        "component": () => React.createElement(require('C:/Users/马志军/AppData/Roaming/npm/node_modules/umi/node_modules/_umi-build-dev@0.22.2@umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', routes: '[{"path":"/","component":"./src\\\\layouts\\\\index.js","routes":[{"path":"/404","exact":true,"component":"./src/pages/404.js"},{"path":"/","exact":true,"component":"./src/pages/index.js"},{"path":"/home/model","exact":true,"component":"./src/pages/home/model.js"},{"path":"/myInfo/model","exact":true,"component":"./src/pages/myInfo/model.js"},{"path":"/interaction","exact":true,"component":"./src/pages/interaction/index.js"},{"path":"/interaction/model","exact":true,"component":"./src/pages/interaction/model.js"},{"path":"/home","exact":true,"component":"./src/pages/home/index.js"},{"path":"/login/model","exact":true,"component":"./src/pages/login/model.js"},{"path":"/loveMoment","exact":true,"component":"./src/pages/loveMoment/index.js"},{"path":"/loveMoment/model","exact":true,"component":"./src/pages/loveMoment/model.js"},{"path":"/myInfo","exact":true,"component":"./src/pages/myInfo/index.js"},{"path":"/login","exact":true,"component":"./src/pages/login/index.js"}]}]' })
       }
     ]
   }
