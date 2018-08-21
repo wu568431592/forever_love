@@ -9,7 +9,7 @@ let app = dva({
 
 window.g_app = app;
 app.use(createLoading());
-app.use(require('F:/workspace/forever_love/node_modules/_dva-immer@0.2.3@dva-immer/lib/index.js').default());
+app.use(require('F:/workspace/forever_love/node_modules/dva-immer/lib/index.js').default());
 app.model({ namespace: 'app', ...(require('F:/workspace/forever_love/src/models/app.js').default) });
 app.model({ namespace: 'model', ...(require('F:/workspace/forever_love/src/pages/home/model.js').default) });
 

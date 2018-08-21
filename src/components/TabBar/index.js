@@ -1,17 +1,17 @@
 import React from 'react'
-import { TabBar } from 'antd-mobile';
+import { TabBar } from 'antd-mobile'
 
 class MeTabBar extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       selectedTab: 'Index',
       hidden: false,
       interActionBadge:'',
       loveMomentBadge:'',
-    };
+    }
   }
-  render() {
+  render () {
     return (
       <div className='TabBar_box' style={{ position: 'fixed', width: '100%', bottom: 0 }}>
         <TabBar
@@ -29,7 +29,7 @@ class MeTabBar extends React.Component {
             onPress={() => {
               this.setState({
                 selectedTab: 'Index',
-              });
+              })
             }}
           >
           </TabBar.Item>
@@ -43,7 +43,7 @@ class MeTabBar extends React.Component {
             onPress={() => {
               this.setState({
                 selectedTab: 'Interaction',
-              });
+              })
             }}
           >
           </TabBar.Item>
@@ -57,7 +57,7 @@ class MeTabBar extends React.Component {
             onPress={() => {
               this.setState({
                 selectedTab: 'LoveMoment',
-              });
+              })
             }}
           >
           </TabBar.Item>
@@ -70,13 +70,13 @@ class MeTabBar extends React.Component {
             onPress={() => {
               this.setState({
                 selectedTab: 'My',
-              });
+              })
             }}
           >
           </TabBar.Item>
         </TabBar>
       </div>
-    );
+    )
   }
 }
 
