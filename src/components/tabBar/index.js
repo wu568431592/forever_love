@@ -31,7 +31,6 @@ class MeTabBar extends React.Component {
                 selectedTab: 'Index',
               });
             }}
-            data-seed="logId"
           >
           </TabBar.Item>
           <TabBar.Item
@@ -46,7 +45,6 @@ class MeTabBar extends React.Component {
                 selectedTab: 'Interaction',
               });
             }}
-            data-seed="logId1"
           >
           </TabBar.Item>
           <TabBar.Item
