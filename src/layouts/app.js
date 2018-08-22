@@ -10,7 +10,7 @@ import './app.less'
 
 const { openPages } = config
 
-const App = ({ app, children, location }) => {
+const App = ({ app, children, location, dispatch }) => {
   console.log(app)
   let { pathname } = location
   if(openPages && openPages.includes(pathname)){
@@ -20,11 +20,16 @@ const App = ({ app, children, location }) => {
       </div>
     )
   }
+  const tabBarProps = {
+    changeSelect (payload){
+      dispatch({ type: 'app/changeSelect',payload:{ url:payload } })
+    },
+  }
 
   return (
     <div className='app'>
       {children}
-      <MeTabBar />
+      <MeTabBar {...tabBarProps}/>
     </div>
 
   )

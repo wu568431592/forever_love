@@ -1,6 +1,6 @@
 import React from 'react'
 import { TabBar } from 'antd-mobile'
-import { routerRedux } from 'dva/router'
+
 
 class MeTabBar extends React.Component {
   constructor (props) {
@@ -16,8 +16,7 @@ class MeTabBar extends React.Component {
     this.setState({
       selectedTab:payload,
     })
-    console.log('/'+payload)
-    routerRedux.push('/'+payload)
+    this.props.changeSelect(payload)
   }
   render () {
     return (
