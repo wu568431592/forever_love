@@ -2,7 +2,9 @@
 export default {
   namespace: 'login',
 
-  state: {},
+  state: {
+
+  },
 
   effects: {
 

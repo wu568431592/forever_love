@@ -4,6 +4,7 @@ import { withRouter } from 'dva/router'
 import PropTypes from 'prop-types'
 import MeTabBar from '../components/TabBar/index'
 import { config } from '../utils/index'
+import { routerRedux } from 'dva/router'
 
 import '../themes/index.less'
 import './app.less'
@@ -22,7 +23,10 @@ const App = ({ app, children, location, dispatch }) => {
   }
   const tabBarProps = {
     changeSelect (payload){
-      dispatch({ type: 'app/changeSelect',payload:{ url:payload } })
+      dispatch(routerRedux.push({
+        pathname:'/'+payload,
+      }))
+     // dispatch({ type: 'app/changeSelect',payload:{ url:payload } })
     },
   }
 
