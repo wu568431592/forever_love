@@ -42,6 +42,7 @@ App.propTypes = {
   children: PropTypes.element.isRequired,
   app: PropTypes.object,
   location: PropTypes.object,
+  dispatch:PropTypes.func,
 }
 
 export default withRouter(

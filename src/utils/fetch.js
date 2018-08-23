@@ -4,7 +4,7 @@ import { Toast } from 'antd-mobile'
 export function fetch (options) {
   return new Promise((resolve, reject) => {
     let instance = axios.create({
-      baseURL: 'http://localhost:8888',
+      baseURL: 'http://192.168.6.136:8888',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
