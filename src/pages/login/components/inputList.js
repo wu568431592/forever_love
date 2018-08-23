@@ -8,18 +8,18 @@ class InputList extends React.Component {
     // this.autoFocusInst.focus();
   }
   submit = () => {
+    console.log('submit')
     this.props.form.validateFields((error, value) => {
-      console.log(error, value)
       if(error && error.phone){
-        Toast.info('亲爱的~手机号不能空着呀~')
+        Toast.info('亲爱的~手机号不能空着呀~',3,null,false)
         return
       }
       if(error && error.password){
-        Toast.info('亲爱的~你忘记输密码了~')
+        Toast.info('亲爱的~你忘记输密码了~',3,null,false)
         return
       }
       if(value.phone && value.phone.length<11){
-        Toast.info('亲爱的~你输的是手机号嘛？')
+        Toast.info('亲爱的~你输的是手机号嘛？',3,null,false)
         return
       }
       login(value.phone, value.password)
