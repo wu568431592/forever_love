@@ -8,7 +8,6 @@ class InputList extends React.Component {
     // this.autoFocusInst.focus();
   }
   submit = () => {
-    console.log('submit')
     this.props.form.validateFields((error, value) => {
       if(error && error.phone){
         Toast.info('亲爱的~手机号不能空着呀~',3,null,false)
