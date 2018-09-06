@@ -15,18 +15,18 @@ class InputList extends React.Component {
         return
       }
       if(error && error.password){
-        Toast.info('亲爱的~你忘记输密码了~',3,null,false)
+        Toast.info('亲爱的~你忘记填密码了~',3,null,false)
         return
       }
       if(value.phone && value.phone.length<11){
-        Toast.info('亲爱的~你输的是手机号嘛？',3,null,false)
+        Toast.info('亲爱的~你填的是手机号嘛？',3,null,false)
         return
       }
       login(value.phone, value.password)
         .then(res=>{
           console.log(res)
           if(res.message === 'success'){
-            this.props.loginSuccess()
+             this.props.loginSuccess()
           }else{
             Toast.offline('亲爱的~手机号密码不匹配呀~',3,null,false)
           }

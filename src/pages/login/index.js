@@ -27,5 +27,4 @@ Login.propTypes = {
   dispatch:PropTypes.func,
 }
 
-
 export default connect(({ login }) => ({ login }))(Login)
