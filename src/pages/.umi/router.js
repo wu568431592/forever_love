@@ -37,9 +37,9 @@ let routes = [
         "component": require('../home/model.js').default
       },
       {
-        "path": "/myInfo/model",
+        "path": "/newMemorialDay/model",
         "exact": true,
-        "component": require('../myInfo/model.js').default
+        "component": require('../newMemorialDay/model.js').default
       },
       {
         "path": "/interaction",
@@ -52,14 +52,14 @@ let routes = [
         "component": require('../interaction/model.js').default
       },
       {
+        "path": "/login/components/inputList",
+        "exact": true,
+        "component": require('../login/components/inputList.js').default
+      },
+      {
         "path": "/home/components/memorialDayItem",
         "exact": true,
         "component": require('../home/components/memorialDayItem.js').default
-      },
-      {
-        "path": "/login",
-        "exact": true,
-        "component": require('../login/index.js').default
       },
       {
         "path": "/login/model",
@@ -82,12 +82,22 @@ let routes = [
         "component": require('../myInfo/index.js').default
       },
       {
-        "path": "/login/components/inputList",
+        "path": "/myInfo/model",
         "exact": true,
-        "component": require('../login/components/inputList.js').default
+        "component": require('../myInfo/model.js').default
       },
       {
-        "component": () => React.createElement(require('C:/Users/马志军/AppData/Roaming/npm/node_modules/umi/node_modules/_umi-build-dev@0.22.2@umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', routes: '[{"path":"/","component":"./src\\\\layouts\\\\index.js","routes":[{"path":"/404","exact":true,"component":"./src/pages/404.js"},{"path":"/","exact":true,"component":"./src/pages/index.js"},{"path":"/home","exact":true,"component":"./src/pages/home/index.js"},{"path":"/home/model","exact":true,"component":"./src/pages/home/model.js"},{"path":"/myInfo/model","exact":true,"component":"./src/pages/myInfo/model.js"},{"path":"/interaction","exact":true,"component":"./src/pages/interaction/index.js"},{"path":"/interaction/model","exact":true,"component":"./src/pages/interaction/model.js"},{"path":"/home/components/memorialDayItem","exact":true,"component":"./src/pages/home/components/memorialDayItem.js"},{"path":"/login","exact":true,"component":"./src/pages/login/index.js"},{"path":"/login/model","exact":true,"component":"./src/pages/login/model.js"},{"path":"/loveMoment","exact":true,"component":"./src/pages/loveMoment/index.js"},{"path":"/loveMoment/model","exact":true,"component":"./src/pages/loveMoment/model.js"},{"path":"/myInfo","exact":true,"component":"./src/pages/myInfo/index.js"},{"path":"/login/components/inputList","exact":true,"component":"./src/pages/login/components/inputList.js"}]}]' })
+        "path": "/newMemorialDay",
+        "exact": true,
+        "component": require('../newMemorialDay/index.js').default
+      },
+      {
+        "path": "/login",
+        "exact": true,
+        "component": require('../login/index.js').default
+      },
+      {
+        "component": () => React.createElement(require('C:/Users/马志军/AppData/Roaming/npm/node_modules/umi/node_modules/_umi-build-dev@0.22.2@umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', routes: '[{"path":"/","component":"./src\\\\layouts\\\\index.js","routes":[{"path":"/404","exact":true,"component":"./src/pages/404.js"},{"path":"/","exact":true,"component":"./src/pages/index.js"},{"path":"/home","exact":true,"component":"./src/pages/home/index.js"},{"path":"/home/model","exact":true,"component":"./src/pages/home/model.js"},{"path":"/newMemorialDay/model","exact":true,"component":"./src/pages/newMemorialDay/model.js"},{"path":"/interaction","exact":true,"component":"./src/pages/interaction/index.js"},{"path":"/interaction/model","exact":true,"component":"./src/pages/interaction/model.js"},{"path":"/login/components/inputList","exact":true,"component":"./src/pages/login/components/inputList.js"},{"path":"/home/components/memorialDayItem","exact":true,"component":"./src/pages/home/components/memorialDayItem.js"},{"path":"/login/model","exact":true,"component":"./src/pages/login/model.js"},{"path":"/loveMoment","exact":true,"component":"./src/pages/loveMoment/index.js"},{"path":"/loveMoment/model","exact":true,"component":"./src/pages/loveMoment/model.js"},{"path":"/myInfo","exact":true,"component":"./src/pages/myInfo/index.js"},{"path":"/myInfo/model","exact":true,"component":"./src/pages/myInfo/model.js"},{"path":"/newMemorialDay","exact":true,"component":"./src/pages/newMemorialDay/index.js"},{"path":"/login","exact":true,"component":"./src/pages/login/index.js"}]}]' })
       }
     ]
   }

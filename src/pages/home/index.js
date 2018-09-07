@@ -4,15 +4,19 @@ import { NavBar } from 'antd-mobile'
 import styles from './index.less'
 import Title from '../../components/Title/index'
 import MemorialDayItem from  './components/memorialDayItem'
+import * as routerRedux from "react-router-redux"
 
 
 
-const Home = ({home}) => {
+const Home = ({home, dispatch}) => {
   const { memorialDay } = home
   console.log(memorialDay)
 
   let newMemorialDay = ()=>{
     console.log('new')
+    dispatch(routerRedux.push({
+      pathname:'/newMemorialDay',
+    }))
   }
   return (
     <div className={styles.home}>
