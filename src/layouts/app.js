@@ -28,6 +28,7 @@ const App = ({ app, children, location, dispatch }) => {
       }))
      // dispatch({ type: 'app/changeSelect',payload:{ url:payload } })
     },
+    path:pathname,
   }
 
   return (

@@ -12,6 +12,15 @@ class MeTabBar extends React.Component {
       loveMomentBadge:'',
     }
   }
+  componentDidMount (){
+    let page = this.props.path
+    switch (page) {
+      case '/loveMoment' : this.setState({selectedTab:'loveMoment'}); return
+      case '/interaction' :  this.setState({selectedTab:'interaction'}); return
+      case '/myInfo' :  this.setState({selectedTab:'myInfo'}); return
+      default : this.setState({selectedTab:'home'}); return
+    }
+  }
   handleSelectChange = (payload)=>{
     this.setState({
       selectedTab:payload,
