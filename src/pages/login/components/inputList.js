@@ -26,6 +26,7 @@ class InputList extends React.Component {
           console.log(res)
           if(res.message === 'success'){
              this.props.loginSuccess()
+             localStorage.setItem('phone',value.phone)
           }else{
             Toast.offline('亲爱的~手机号密码不匹配呀~',3,null,false)
           }

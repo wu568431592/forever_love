@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'dva'
-import { NavBar, Icon  } from 'antd-mobile'
+import { NavBar, Icon } from 'antd-mobile'
 import styles from './index.less'
+import InputList from  './components/inputList'
 import * as routerRedux from "react-router-redux"
+
 
 const NewMemorialDay = ({newMemorialDay,dispatch}) => {
   console.log(newMemorialDay)
   let goback = ()=>{
-    console.log('onLeftClick')
-    console.log(routerRedux)
     dispatch(routerRedux.goBack())
   }
   return (
@@ -18,7 +18,7 @@ const NewMemorialDay = ({newMemorialDay,dispatch}) => {
         icon={<Icon type="left" />}
         onLeftClick={() => goback()}
       >纪念日</NavBar>
-      newMemorialDay
+      <InputList />
     </div>
   )
 }
