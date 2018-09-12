@@ -1,18 +1,33 @@
 import {fetch} from "./fetch"
 
 export const login = (phone, password) => {
-  console.log(1)
-  let phoneArray = phone.split(' ')
-  let mephone =''
-  phoneArray.forEach(function (item){
-    mephone+=item
-  })
   return fetch({
     url: '/api/login',
     method: 'post',
     data:{
-      phone : Number(mephone),
+      phone : Number(phone),
       password : password,
+    },
+  })
+}
+
+export const updateMemorialDay = (payload) => {
+  return fetch({
+    url: '/api/updateMemorialDay',
+    method: 'post',
+    data:{
+      ...payload,
+    },
+  })
+}
+
+export const getMemorialDay = (payload) => {
+  console.log(payload)
+  return fetch({
+    url: '/api/getMemorialDay',
+    method: 'post',
+    data:{
+      ...payload,
     },
   })
 }

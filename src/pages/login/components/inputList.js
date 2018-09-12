@@ -21,12 +21,17 @@ class InputList extends React.Component {
         Toast.info('亲爱的~你填的是手机号嘛？',3,null,false)
         return
       }
-      login(value.phone, value.password)
+      let phoneArray = value.phone.split(' ')
+      let mephone = ''
+      phoneArray.forEach(function (item){
+        mephone += item
+      })
+      login(mephone, value.password)
         .then(res=>{
           console.log(res)
           if(res.message === 'success'){
              this.props.loginSuccess()
-             localStorage.setItem('phone',value.phone)
+             localStorage.setItem('phone', mephone)
           }else{
             Toast.offline('亲爱的~手机号密码不匹配呀~',3,null,false)
           }

@@ -1,4 +1,4 @@
-
+import { getMemorialDay } from '../../utils/request'
 export default {
   namespace: 'home',
 
@@ -20,7 +20,15 @@ export default {
       },
     ],
   },
-
+  subscriptions: {
+    setup ({ dispatch, history }) {
+      history.listen(({ pathname }) => {
+        if (pathname === '/home' || pathname === '/') {
+          dispatch({ type: 'getMemorialDay', payload:{phone:localStorage.getItem('phone')} })
+        }
+      })
+    },
+  },
   effects: {
     * gowidth ({ payload }, { call, put, select }){
       const data = yield call()
@@ -29,6 +37,14 @@ export default {
         yield put({ type: 'updateState', payload: { selectedRowKeys: selectedRowKeys.filter(_ => _ !== payload) } })
       } else {
         throw data
+      }
+    },
+    * getMemorialDay ({ payload }, {call, put}){
+      const data = yield  call(getMemorialDay,payload)
+      console.log(data)
+
+      if(data.code === 200){
+        yield put({type:'updateState', payload: {}})
       }
     },
   },

@@ -11,6 +11,7 @@ const NewMemorialDay = ({newMemorialDay,dispatch}) => {
   let goback = ()=>{
     dispatch(routerRedux.goBack())
   }
+
   return (
     <div className={styles.newMemorialDay}>
       <NavBar

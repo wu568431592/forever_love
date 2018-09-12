@@ -11,9 +11,7 @@ import * as routerRedux from "react-router-redux"
 const Home = ({home, dispatch}) => {
   const { memorialDay } = home
   console.log(memorialDay)
-
   let newMemorialDay = ()=>{
-    console.log('new')
     dispatch(routerRedux.push({
       pathname:'/newMemorialDay',
     }))
