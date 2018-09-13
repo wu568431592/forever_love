@@ -29,7 +29,7 @@ class MeTabBar extends React.Component {
   }
   render () {
     return (
-      <div className='TabBar_box' style={{ position: 'fixed', width: '100%', bottom: 0 }}>
+      <div className='TabBar_box' style={{ position: 'fixed', width: '100%', bottom: 0,borderTop: '1px solid #ddd' }}>
         <TabBar
           unselectedTintColor="#666"
           tintColor="#e4393c"

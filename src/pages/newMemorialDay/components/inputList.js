@@ -4,11 +4,9 @@ import {Button, DatePicker, InputItem, List, Toast, WhiteSpace, WingBlank} from 
 import styles from './inputList.less'
 import { updateMemorialDay } from '../../../utils/request'
 
-
 const nowTimeStamp = Date.now()
 const now = new Date(nowTimeStamp)
 const minDate = new Date(0)
-
 
 class InputList extends React.Component {
   constructor (props) {
@@ -41,6 +39,11 @@ class InputList extends React.Component {
       }
       console.log(obj)
       updateMemorialDay(obj)
+        .then(res=>{
+          if(res.code === 200){
+            Toast.success('添加成功！', 3, null, false)
+          }
+        })
     })
   }
 

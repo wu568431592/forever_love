@@ -11,10 +11,12 @@ class memorialDayItem extends React.Component{
 
     }
   }
-  editNow (){
+  editNow (id){
+    console.log(id)
     console.log('I will go editpage')
   }
-  deleteMe (){
+  deleteMe (id){
+    console.log(id)
     alert('删除', '亲爱的，你确定要删除么？', [
       { text: '手滑了~', onPress: () => console.log('cancel'), style: 'default' },
       { text: '嗯啊!', onPress: () => console.log('ok') },
@@ -24,15 +26,15 @@ class memorialDayItem extends React.Component{
     let { props } = this.props
     if(props){
       return(
-        <div className={styles.memorialDayItem}>
+        <div className={styles.memorialDayItem} data-id={props.val.id}>
           <h3 className={styles.title}>
-            {props.val.title}
-            <b onClick={()=>{this.deleteMe()}}></b>
-            <i onClick={()=>{this.editNow()}}></i>
+            {props.val.name}
+            <b onClick={()=>{this.deleteMe(props.val.id)}}></b>
+            <i onClick={()=>{this.editNow(props.val.id)}}></i>
           </h3>
-          <p className={styles.date}><span>日期：{props.val.dateTime}</span><span>下次：{props.val.nextTime}</span></p>
-          <p className={styles.countdown}>距离{props.val.title}还有 <span>{props.val.countdown}</span> <b>天</b></p>
-          <p className={styles.totalTime}>总计{props.val.totalTime}天</p>
+          <p className={styles.date}><span>日期：{props.val.time.substring(0,11)}</span><span>下次：{props.val.next.substring(0,11)}</span></p>
+          <p className={styles.countdown}>距离该纪念日还有 <span>{props.val.countDown}</span> <b>天</b></p>
+          <p className={styles.totalTime}>总计{props.val.day}天</p>
         </div>
       )
     }else{

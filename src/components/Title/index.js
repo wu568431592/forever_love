@@ -12,13 +12,11 @@ class Title extends React.Component{
 
   render (){
     return (
-      <div>
-        <div className={style.title}>
-          <span className={style.left}></span>
-          <p>{this.props.title}</p>
-          <div>
-            { this.props.children }
-          </div>
+      <div className={style.title}>
+        <span className={style.left}></span>
+        <p>{this.props.title}</p>
+        <div>
+          { this.props.children }
         </div>
       </div>
     )

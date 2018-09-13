@@ -1,4 +1,4 @@
-import '/Users/web/Documents/workspace/forever_love/src/global.js';
+import 'F:/workspace/forever_love/src/global.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import createHistory from 'umi/_createHistory';

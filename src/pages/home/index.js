@@ -9,8 +9,8 @@ import * as routerRedux from "react-router-redux"
 
 
 const Home = ({home, dispatch}) => {
-  const { memorialDay } = home
-  console.log(memorialDay)
+  const { memorialDay,height } = home
+  console.log( memorialDay )
   let newMemorialDay = ()=>{
     dispatch(routerRedux.push({
       pathname:'/newMemorialDay',
@@ -18,21 +18,27 @@ const Home = ({home, dispatch}) => {
   }
   return (
     <div className={styles.home}>
-      <NavBar style={{position:'fixed',width:'100%',top:'0px',left:'0px'}}>首页</NavBar>
-      <Title title='我们的纪念日' style={{marginTop:'45px'}}>
-        <i onClick={()=>{newMemorialDay()}}
-           style={{ backgroundImage: 'url('+require('../../../assets/icons/new.svg')+')', backgroundSize: 'cover' }}
-        />
-      </Title>
-      <div className={styles.memorialDay}>
-        {
-          memorialDay.map((val, key)=>{
-            return(
-              <MemorialDayItem props={{val:val}} key={key}/>
-            )
-          })
-        }
+      <NavBar style={{position:'fixed',width:'100%',top:'0px',left:'0px',zIndex:100}}>首页</NavBar>
+      <div style={{position:'fixed',width:'100%',top:'45px',left:'0px',zIndex:100}}>
+        <Title title='我们的纪念日'>
+          <i onClick={()=>{newMemorialDay()}}
+             style={{ backgroundImage: 'url('+require('../../../assets/icons/new.svg')+')', backgroundSize: 'cover' }}
+          />
+        </Title>
       </div>
+
+        {memorialDay!==null ?
+          (<div className={styles.memorialDay} style={{height:height}}>
+            {
+              memorialDay.map((val, key)=>{
+                return(
+                  <MemorialDayItem props={{val:val}} key={key}/>
+                )
+              })
+            }
+          </div>)
+          :(<div></div>)
+        }
     </div>
   )
 }
