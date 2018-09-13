@@ -11,7 +11,11 @@ const NewMemorialDay = ({newMemorialDay,dispatch}) => {
   let goback = ()=>{
     dispatch(routerRedux.goBack())
   }
-
+  const inputProps = {
+    goback:()=>{
+      dispatch(routerRedux.goBack())
+    },
+  }
   return (
     <div className={styles.newMemorialDay}>
       <NavBar
@@ -19,7 +23,7 @@ const NewMemorialDay = ({newMemorialDay,dispatch}) => {
         icon={<Icon type="left" />}
         onLeftClick={() => goback()}
       >纪念日</NavBar>
-      <InputList />
+      <InputList props={{...inputProps}}/>
     </div>
   )
 }

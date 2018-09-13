@@ -7,14 +7,20 @@ import MemorialDayItem from  './components/memorialDayItem'
 import * as routerRedux from "react-router-redux"
 
 
-
 const Home = ({home, dispatch}) => {
   const { memorialDay,height } = home
-  console.log( memorialDay )
   let newMemorialDay = ()=>{
     dispatch(routerRedux.push({
       pathname:'/newMemorialDay',
     }))
+  }
+  const onDelete = (id)=>{
+    dispatch({
+      type:'home/handleDeleteMemorial',
+      payload:{
+        id:id,
+      },
+    })
   }
   return (
     <div className={styles.home}>
@@ -26,18 +32,19 @@ const Home = ({home, dispatch}) => {
           />
         </Title>
       </div>
-
-        {memorialDay!==null ?
-          (<div className={styles.memorialDay} style={{height:height}}>
+          <div className={styles.memorialDay} style={{height:height}}>
             {
               memorialDay.map((val, key)=>{
                 return(
-                  <MemorialDayItem props={{val:val}} key={key}/>
+                  <MemorialDayItem
+                    props={{
+                      val:val,
+                      onDelete:onDelete,
+                    }} key={key}/>
                 )
               })
             }
-          </div>)
-          :(<div></div>)
+          </div>
         }
     </div>
   )

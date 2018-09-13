@@ -21,8 +21,17 @@ export const updateMemorialDay = (payload) => {
   })
 }
 
+export const deleteMemorialDay = (payload) => {
+  return fetch({
+    url: '/api/deleteMemorialDay',
+    method: 'post',
+    data:{
+      ...payload,
+    },
+  })
+}
+
 export const getMemorialDay = (payload) => {
-  console.log(payload)
   return fetch({
     url: '/api/getMemorialDay',
     method: 'post',

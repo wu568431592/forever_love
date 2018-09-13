@@ -16,17 +16,18 @@ class memorialDayItem extends React.Component{
     console.log('I will go editpage')
   }
   deleteMe (id){
-    console.log(id)
     alert('删除', '亲爱的，你确定要删除么？', [
       { text: '手滑了~', onPress: () => console.log('cancel'), style: 'default' },
-      { text: '嗯啊!', onPress: () => console.log('ok') },
+      { text: '嗯啊!', onPress: () => {
+          this.props.props.onDelete(id)
+        } },
     ])
   }
   render (){
     let { props } = this.props
     if(props){
       return(
-        <div className={styles.memorialDayItem} data-id={props.val.id}>
+        <div className={styles.memorialDayItem}>
           <h3 className={styles.title}>
             {props.val.name}
             <b onClick={()=>{this.deleteMe(props.val.id)}}></b>

@@ -37,12 +37,17 @@ class InputList extends React.Component {
         phone:localStorage.getItem('phone'),
         ...value,
       }
-      console.log(obj)
       updateMemorialDay(obj)
         .then(res=>{
           if(res.code === 200){
             Toast.success('添加成功！', 3, null, false)
+            setTimeout(()=>{
+              this.props.props.goback()
+            },3000)
           }
+        })
+        .catch(err=>{
+          console.log(err)
         })
     })
   }
