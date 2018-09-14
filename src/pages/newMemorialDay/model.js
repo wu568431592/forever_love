@@ -3,6 +3,7 @@ export default {
   namespace: 'newMemorialDay',
 
   state: {
+
   },
 
   effects: {

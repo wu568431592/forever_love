@@ -22,6 +22,14 @@ const Home = ({home, dispatch}) => {
       },
     })
   }
+  const onEdit = (payload)=>{
+    dispatch(routerRedux.push({
+      pathname:'/newMemorialDay',
+      query:{
+        ...payload,
+      },
+    }))
+  }
   return (
     <div className={styles.home}>
       <NavBar style={{position:'fixed',width:'100%',top:'0px',left:'0px',zIndex:100}}>首页</NavBar>
@@ -40,6 +48,7 @@ const Home = ({home, dispatch}) => {
                     props={{
                       val:val,
                       onDelete:onDelete,
+                      onEdit:onEdit,
                     }} key={key}/>
                 )
               })

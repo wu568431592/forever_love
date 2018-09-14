@@ -11,9 +11,8 @@ class memorialDayItem extends React.Component{
 
     }
   }
-  editNow (id){
-    console.log(id)
-    console.log('I will go editpage')
+  editNow (payload){
+    this.props.props.onEdit(payload)
   }
   deleteMe (id){
     alert('删除', '亲爱的，你确定要删除么？', [
@@ -31,7 +30,11 @@ class memorialDayItem extends React.Component{
           <h3 className={styles.title}>
             {props.val.name}
             <b onClick={()=>{this.deleteMe(props.val.id)}}></b>
-            <i onClick={()=>{this.editNow(props.val.id)}}></i>
+            <i onClick={()=>{this.editNow({
+              id:props.val.id,
+              name:props.val.name,
+              time:props.val.time,
+            })}}></i>
           </h3>
           <p className={styles.date}><span>日期：{props.val.time.substring(0,11)}</span><span>下次：{props.val.next.substring(0,11)}</span></p>
           <p className={styles.countdown}>距离该纪念日还有 <span>{props.val.countDown}</span> <b>天</b></p>

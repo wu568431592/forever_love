@@ -3,19 +3,19 @@ import { connect } from 'dva'
 import { NavBar, Icon } from 'antd-mobile'
 import styles from './index.less'
 import InputList from  './components/inputList'
-import * as routerRedux from "react-router-redux"
+import router from 'umi/router'
 
 
-const NewMemorialDay = ({newMemorialDay,dispatch}) => {
+const NewMemorialDay = ({ newMemorialDay }) => {
   console.log(newMemorialDay)
-  let goback = ()=>{
-    dispatch(routerRedux.goBack())
+  const goback = ()=>{
+    router.goBack()
   }
   const inputProps = {
-    goback:()=>{
-      dispatch(routerRedux.goBack())
-    },
+    goback:goback,
+    ...router.location.query,
   }
+
   return (
     <div className={styles.newMemorialDay}>
       <NavBar

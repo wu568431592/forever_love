@@ -31,10 +31,10 @@ export default {
       memorialDay.map(function (val,key){
         if(val.id === payload.id){
           index = key
-          return key
         }
+        return 0
       })
-      let list = memorialDay.slice(0)
+      let list = memorialDay.slice(0)             //克隆一个纪念日列表
       list.splice(index,1)
       if(data.code === 200){
         Toast.success('删除成功~', 3, null, false)

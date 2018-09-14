@@ -13,47 +13,60 @@ class InputList extends React.Component {
     super(props)
     this.state = {
       date: '',
+      name:'',
     }
   }
 
   componentDidMount () {
     // this.autoFocusInst.focus();
+    console.log(this.props)
+    if(this.props.props.time){
+      const time = new Date(Date.parse(this.props.props.time.replace(/-/g,"/"))) ||''
+      this.setState({
+        date:time?time:'',
+        name:this.props.props.name?this.props.props.name:'',
+      })
+    }
   }
-
+  // handleChange = () =>{
+  //   console.log(this.inputRef.props.value)
+  // }
   submit = () => {
-    this.props.form.validateFields((error, value) => {
-      if (error) {
-        Toast.info('亲爱的~纪念日名称你没填啊！', 3, null, false)
-        return
-      }
-      if (!this.state.date) {
-        Toast.info('亲爱的~你没选择时间呀！', 3, null, false)
-        return
-      }
-      const time = new Date(this.state.date).formate('yyyy-MM-dd hh:mm')
-      const obj = {
-        id:this.props.id ||'',
-        time: time,
-        phone:localStorage.getItem('phone'),
-        ...value,
-      }
-      updateMemorialDay(obj)
-        .then(res=>{
-          if(res.code === 200){
-            Toast.success('添加成功！', 3, null, false)
-            setTimeout(()=>{
-              this.props.props.goback()
-            },3000)
-          }
-        })
-        .catch(err=>{
-          console.log(err)
-        })
+    if(!this.state.name){
+      Toast.info('亲爱的~纪念日名称你没填啊！', 3, null, false)
+      return
+    }
+    if (!this.state.date) {
+      Toast.info('亲爱的~你没选择时间呀！', 3, null, false)
+      return
+    }
+    const time = new Date(this.state.date).formate('yyyy-MM-dd hh:mm')
+    const obj = {
+      id:this.props.props.id ||'',
+      time: time,
+      phone:localStorage.getItem('phone'),
+      name:this.state.name,
+    }
+    updateMemorialDay(obj)
+      .then(res=>{
+        if(res.code === 200){
+          this.props.props.id ? Toast.success('修改成功！', 3, null, false):Toast.success('添加成功！', 3, null, false)
+          setTimeout(()=>{
+            this.props.props.goback()
+          },3000)
+        }
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+  }
+  handleChange = (value)=>{
+    this.setState({
+      name:value,
     })
   }
-
   render () {
-    const {getFieldProps} = this.props.form
+    const { getFieldProps } = this.props.form
     return (
       <div className={styles.inputList}>
         <WhiteSpace size='lg'/>
@@ -66,6 +79,8 @@ class InputList extends React.Component {
             placeholder="输入纪念日名称"
             clear
             labelNumber={6}
+            value={this.state.name}
+            onChange={this.handleChange}
           >纪念日名称</InputItem>
         </List>
         <List className="date-picker-list" style={{backgroundColor: 'white'}}>
