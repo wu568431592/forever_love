@@ -12,7 +12,6 @@ export default {
       history.listen(({ pathname }) => {
         if (pathname === '/home' || pathname === '/') {
           dispatch({ type: 'getMemorialDay', payload:{ phone:localStorage.getItem('phone') } })
-          dispatch({type:'setHeight'})
         }
       })
     },
@@ -26,7 +25,7 @@ export default {
     },
     * handleDeleteMemorial ({payload},{call, put, select}){
       const data = yield  call(deleteMemorialDay,payload)
-      const { memorialDay } = yield  select( _ =>_.home)
+      const { memorialDay } = yield  select( _ => _.home)
       let index = ''
       memorialDay.map(function (val,key){
         if(val.id === payload.id){
@@ -50,15 +49,6 @@ export default {
         ...payload,
       }
     },
-    setHeight ( state ){
-      const bHeight = document.getElementsByTagName('html')[0].offsetHeight
-      const height = bHeight-85-50-1
-      return {
-        ...state,
-        height:height,
-      }
-    },
-
   },
 
 }

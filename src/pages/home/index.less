@@ -1,16 +1,29 @@
 .home{
   background: #fff;
   height:100vh;
-
-  overflow-y: auto;
-  overflow-x: hidden;
-  .memorialDay{
-    margin-top:85px;
+  .home_main_box{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    margin-top:45px;
     margin-bottom:50px;
     -webkit-overflow-scrolling : touch;
-    height:80vh;
+    height:~'calc(100vh - 45px - 50px)';
     overflow-y: auto;
     overflow-x: hidden;
-    padding:10px 3vw;
+    .memorialDay{
+      padding:10px 3vw;
+      border-bottom:1px solid #ddd;
+    }
+    .games_box{
+      padding:10px 3vw;
+      border-bottom:1px solid #ddd;
+    }
+    .photos_box{
+      padding:10px 3vw;
+      border-bottom:1px solid #ddd;
+    }
   }
+
 }
