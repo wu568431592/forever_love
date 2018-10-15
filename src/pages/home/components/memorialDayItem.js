@@ -48,6 +48,5 @@ class memorialDayItem extends React.Component{
     }
 
   }
-
 }
 export default memorialDayItem

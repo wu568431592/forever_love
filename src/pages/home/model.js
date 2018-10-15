@@ -5,7 +5,20 @@ export default {
   namespace: 'home',
   state: {
     memorialDay:[],
-    height:'',
+    gamesList:[
+      {
+        id:1,
+        name:'你画我猜',
+      },
+      {
+        id:2,
+        name:'宠物养成',
+      },
+      {
+        id:3,
+        name:'飞机大战',
+      },
+    ],
   },
   subscriptions: {
     setup ({ dispatch, history }) {
